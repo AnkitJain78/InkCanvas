@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/black2"
+    android:backgroundTint="@color/grey"
+    android:orientation="vertical">
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/search_bar"
+        android:queryHint="@string/search_notes"
+        android:searchIcon="@drawable/ic_search"
+        android:iconifiedByDefault="false"
+        android:theme="@style/ThemeOverlay.search"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="15dp"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        tools:listitem="@layout/item_note" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+    <LinearLayout
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#2A2A2D"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/canvas"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#2A2A2D"
+            android:contentDescription="canvas"
+            android:src="@drawable/ic_brush" />
+
+        <ImageButton
+            android:id="@+id/checkList"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#2A2A2D"
+            android:layout_marginStart="5dp"
+            android:contentDescription="check"
+            android:src="@drawable/ic_check_box" />
+
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/add_note_button"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/add_note_button"
+        android:contentDescription="add note"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="25dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
