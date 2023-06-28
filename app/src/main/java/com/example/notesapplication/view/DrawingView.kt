@@ -64,8 +64,6 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         super.onSizeChanged(w, h, oldw, oldh)
         val tempCanvasBitmap = CanvasActivity.Companion.canvasBitmap
         tempCanvasBitmap?.let {
-            Toast.makeText(context, "hey", Toast.LENGTH_SHORT).show()
-            Log.d("hey", bitmapToString(tempCanvasBitmap))
             canvasBitmap = tempCanvasBitmap
             canvas = Canvas(canvasBitmap!!)
             canvas!!.drawBitmap(canvasBitmap!!, 0f, 0f, null)
@@ -73,7 +71,6 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         if(canvasBitmap == null) {
             canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
             canvas = Canvas(canvasBitmap!!)
-            Toast.makeText(context, "Working", Toast.LENGTH_SHORT).show()
             canvas!!.drawBitmap(canvasBitmap!!, 0f, 0f, canvasPaint)
         }
     }
@@ -171,7 +168,6 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
                     "${BuildConfig.APPLICATION_ID}.fileprovider",
                     it
                 )
-            Toast.makeText(context, canvasUri.toString(), Toast.LENGTH_SHORT).show()
             if (canvasUri != null)
                 saveDrawingToStream(bitmap, resolver.openOutputStream(canvasUri))
         }
